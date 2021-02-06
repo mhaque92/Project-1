@@ -8,7 +8,7 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
 
-  - _TODO: Enter the playbook file._
+  - https://github.com/mhaque92/Project-1/blob/main/Ansible/Filebeat/Filebeat-playbook.yml
 
 This document contains the following details:
 - Description of the Topology
@@ -33,40 +33,44 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name     | Function | IP Address | Operating System |
-|----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
+| Name    | Function    | IP Address | Operating System |
+|---------|-------------|------------|------------------|
+|         |             |            |                  |
+| Jumpbox | Gateway     | 10.0.0.4   | Linux            |
+| Web-1   | Webserver 1 | 10.0.0.7   | Linux            |
+| Web-2   | Webserver 2 | 10.0.0.6   | Linux            |
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+Only the JumpBox machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses: 66.108.39.253
 
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+
+Machines within the network can only be accessed by JumpBox virtual machine.
+- The Jumpbox has access to the ELK VM. The IP address of the JumpBox is 10.0.0.4
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Name    | Publicly Accessible  | Allowed IP Address |
+|---------|----------------------|--------------------|
+|         |                      |                    |
+| Jumpbox | No                   | 66.108.39.253      |
+| Web-1   | No                   | 10.0.0.4           |
+| Web-2   | No                   | 10.0.0.4           |
+| ELK     | No                   | 10.0.0.4           |
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it allows IT administrators to automate their daily tasks and save a lot of time.
+
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+- Install Docker
+- Install python3-pip
+- Install Docker python module 
+- Set the vm.max_map_count to 262144
+- Download and launch a docker elk container
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
